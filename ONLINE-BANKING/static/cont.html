@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        /* Add your styles here */
+        .banner-card {
+            position: relative;
+        }
+        .row {
+            padding: 20px;
+        }
+        .banner-card img {
+            margin: 10px;
+            padding: 10px;
+            max-width: 100%;
+            height: auto;
+            float: left;
+        }
+        .banner-text {
+            position: absolute;
+            top: 25%;
+            color: black;
+            padding: 20px;
+        }
+        .banner-text h3 {
+            font-size: 26px;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        #box, #box1, #box2 {
+            width: 30%;
+            background-color: pink;
+            text-transform: capitalize;
+            text-decoration: none;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            float: left;
+        }
+        #b {
+            position: absolute;
+            top: 80%;
+            left: 36%;
+            margin-top: 20px;
+            width: 30%;
+            background-color: black;
+        }
+        .footer {
+            background-color: skyblue;
+            max-width: 100%;
+            margin: auto;
+            padding: 5px 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .footer-col {
+            width: 25%;
+            padding: 0 15px;
+        }
+        .footer-col h4 {
+            font-size: 18px;
+            color: #ffffff;
+            text-transform: capitalize;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .footer-col h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            background-color: #e91e63;
+            height: 2px;
+            width: 50px;
+        }
+        .footer-col ul li:not(:last-child) {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            font-size: 16px;
+            text-transform: capitalize;
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul li a:hover {
+            color: #ffffff;
+            padding-left: 8px;
+        }
+        .footer-col .social-links a {
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin: 0 10px 10px 0;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all 0.5s ease;
+        }
+        .footer-col .social-links a:hover {
+            color: #24262b;
+            background-color: white;
+        }
+        @media (max-width: 767px) {
+            .footer-col {
+                width: 50%;
+                margin-bottom: 30px;
+            }
+        }
+        /* Chatbox CSS */
+        .chatbox {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+        }
+        .chatbox__support {
+            display: flex;
+            flex-direction: column;
+            background: #f9f9f9;
+            width: 300px;
+            height: 400px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            opacity: 0;
+            transition: all .5s ease-in-out;
+        }
+        .chatbox--active {
+            transform: translateY(-40px);
+            opacity: 1;
+        }
+        .chatbox__button {
+            text-align: right;
+        }
+        .chatbox__header {
+            background: var(--primaryGradient);
+            padding: 15px 20px;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+        .chatbox__messages {
+            padding: 10px;
+            overflow-y: scroll;
+            flex: 1;
+        }
+        .messages__item {
+            margin: 5px 0;
+            background: #e0e0e0;
+            padding: 8px 12px;
+            border-radius: 10px;
+        }
+        .messages__item--operator {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+        }
+        .messages__item--visitor {
+            align-self: flex-start;
+        }
+        .chatbox__footer {
+            display: flex;
+            padding: 10px;
+            background: var(--secondaryGradient);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+        .chatbox__footer input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            margin-right: 10px;
+        }
+        .send__button {
+            background: transparent;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="th.jpg" width="50" height="50">
+                </a>
+                <div class="navbar-collapse collapse">
+                    <ul style="font-style: italic;" class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="contact.html">Contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="abou.html">About</a>
+                        </li>
+                    </ul>
+                </div>
+                <form class="d-flex">
+                    <input class="form-control" type="search" placeholder="search">
+                    <button type="button">search</button>
+                </form>
+            </nav>
+            <div class="row">
+                <div class="banner-card">
+                    <img src="con.webp">
+                    <div class="banner-text">
+                        <h1>NEED HELP...?</h1>
+                        <h3>THIS Bank is for you</h3>
+                    </div>
+                    <div id="box">
+                        <h1>EMAIL</h1>
+                        <p>gaddammedipoojaxyz@gmail.com</p>
+                        <h6>anytime available</h6>
+                    </div>
+                    <div id="box1">
+                        <h1>Address</h1>
+                        <p>SwitzerLand, Hyderbad, California</p>
+                        <h6>8527862368</h6>
+                    </div>
+                    <div id="box2">
+                        <h1>Department</h1>
+                        <p>EXCELLENT FACILITIES</p>
+                        <h6>anytime available</h6>
+                    </div>
+                    <div id="b">
+                        <button class="btn btn-primary" style="float:right;">
+                            <a href="abou.html" style="color:white">MORE INFO</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+                </div>
+            </div>
+            <div class="chatbox__messages"></div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message..." />
+                <button class="send__button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="https://img.icons8.com/color/48/000000/chat.png" /></button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatbox = document.querySelector('.chatbox');
+            const chatboxButton = document.querySelector('.chatbox__button button');
+            const chatboxSupport = document.querySelector('.chatbox__support');
+            const sendButton = document.querySelector('.send__button');
+            const chatInput = document.querySelector('.chatbox__footer input');
+            const chatMessages = document.querySelector('.chatbox__messages');
+
+            chatboxButton.addEventListener('click', () => {
+                chatboxSupport.classList.toggle('chatbox--active');
+            });
+
+            sendButton.addEventListener('click', sendMessage);
+
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            function sendMessage() {
+                const userMessage = chatInput.value;
+                if (userMessage) {
+                    addMessage('visitor', userMessage);
+                    chatInput.value = '';
+                    fetch('/predict', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ message: userMessage })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        addMessage('operator', data.answer);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                }
+            }
+
+            function addMessage(type, message) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('messages__item', `messages__item--${type}`);
+                messageElement.textContent = message;
+                chatMessages.appendChild(messageElement);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>

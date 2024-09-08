@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Abou</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: 'Roboto',sans-serif;
+
+        }
+         body{
+            background-color: #f2f2f2;
+        }
+        .heading{
+            width: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           flex-direction: column;
+            text-align: center;
+            margin: 20px auto;
+        }
+        .heading h1{
+            font-size: 50px;
+            color: #000;
+          margin-bottom: 25px;
+            position: relative;
+        }
+        .heading h1::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            display: block;
+            margin: 0 auto;
+            background-color: #4caf50;
+        }
+        .heading p{
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 35px;
+        }
+        .container{
+            width: 90%;
+            margin: 0 auto;
+            padding: 10px 20px;
+        }.row{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .about{
+            display: flex;
+            align-items: center;
+
+           
+        
+           
+           
+        }
+        .about-image{
+            flex: 1;
+            margin-right: 60px;
+            overflow: hidden;
+            width: 1130px;
+            max-width: 95%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+          
+            
+        }
+        .about-image img{
+           max-width: auto;
+           height: auto;
+           display: block;
+
+           transition: 0.5s ease; 
+        }
+        .about-image:hover img{
+            transform: scale(1.2);
+        }
+        .about-content h2{
+            font-size: 23px;
+            line-height: 1.5;
+            color: #666;
+
+
+        }
+        .about-content  p{
+          
+            margin-left: 20px;
+            
+            
+
+        }
+        .about-content .read-more{
+            display: inline-block;
+            padding: 10px 20px;
+            color:#3e8e41;
+            font-size: 19px;
+            text-decoration: none;
+            border-radius: 25px;
+            margin-top: 15px;
+            transition: 0.3s ease;
+        }
+        .about-content .readmore:hover{
+            background-color: #3e8e41;
+        }
+        @media screen  and (max-width:768px){
+            .heading{
+                padding: 0px 20px;
+            }
+            .heading h1{
+                font-size: 36px;
+
+            }
+            .heading p{
+                font-size: 17px;
+                margin-bottom: 0px;
+            }
+            .container{
+                padding: 0px;
+            }
+            .about{
+
+                padding: 20px;
+                flex-direction: column;
+            }
+            .about-image{
+                margin-right: 0px;
+                margin-bottom: 20px;
+            }
+            .about-content p{
+                padding: 0px;
+                font-size: 16px;
+            }
+            .about-content .read-more{
+                font-size: 16px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        <h1>About Us</h1>
+        
+        <p> bank Amanagement system (BMS) is a sophisticated and comprehensive system that handles the operations, administration, and management of banking processes</p>
+        <div class="row">
+        <section class="about">
+            <div class="about-image">
+                <img src="th.jpg">
+            </div>
+            <div class="about-content">
+                <h2>Core Banking Functions</h2>
+                <p>Transaction Processing: Facilitates real-time processing of various transactions like deposits, withdrawals, transfers, and payments.
+            Customer Experience
+           Personalization: Offers personalized banking experiences through tailored products and services based on individual customer needs.
+        Customer Feedback: Collects and analyzes customer feedback to continuously improve banking services and enhance customer satisfaction.
+        24/7 Support: Provides round-the-clock customer support through various channels, including phone, email, chat, and social media.</p>
+    <a href="" class="read-more">read more</a>    
+    </div>
+            </div></div>
+        </section>
+    </div>
+</body>
+</html>
